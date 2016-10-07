@@ -3,7 +3,8 @@ var React = require('react');
 var DatosBasicos = React.createClass({
 	
 	render: function(){
-		return(
+		console.log('DatosBasicos render');
+		return(			
 			<div>
 				<span>CARACTERISTIQUES I DADES BÀSIQUES</span>
 				<ul>
