@@ -4,33 +4,38 @@ var Header = require('./components/header');
 var Footer = require('./components/footer');
 var DatosBasicos = require('./components/DatosBasicos');
 var Mapa = require('./components/mapa');
-
 var RecursoActionCreators = require('./actions/recursos-action');
 var RecursoStore = require('./stores/recursos-store');
 
 var nLongitud = 0;
 var nLatitud = 0;
-//var data = [];
+var data = [];
+/*
 var data;
-
 function getStateFromStore() {
     data = RecursoStore.getAll();
     //console.log('VISTA getStateFromStore '+data.island);
     return data;
 }	
-
+*/
+function getStateFromStore() {
+  return {
+    data: RecursoStore.getAll()
+  }
+}
 var DatosBasicosContainer = React.createClass({
 	onload: function(){
 	    var filtro = "https://private-f627e6-recursos.apiary-mock.com/recursos";
 	    RecursoActionCreators.obtenerRecursos(filtro);
 	},
 	onChange: function() {
-		//this.setState(getStateFromStore());			
-		this.setState({data:getStateFromStore()});
+		this.setState(getStateFromStore());			
+		/*this.setState({data:getStateFromStore()});*/
 		//console.log('[RRTT] la vista ha cambiado de datos basicos. Datos actualizados ' + this.state.data.island);
 	},
 	getInitialState: function(){
-		return {data: []};
+		//return {data: []};
+		return getStateFromStore();
 	},
 	componentDidMount: function(){
 		RecursoStore.addChangeListener(this.onChange);

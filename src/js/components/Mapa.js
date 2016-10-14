@@ -16,7 +16,7 @@ var Mapa = React.createClass({
 
 		if(map==null){
 
-			console.log("ENTRA if "+new Number(lon)+', '+new Number(lat));
+			//console.log("ENTRA if "+new Number(lon)+', '+new Number(lat));
 
 			map = new ol.Map({
 				target: 'mapa',
@@ -31,7 +31,7 @@ var Mapa = React.createClass({
 				})
 			});
 		} else {
-			console.log("ENTRA else: "+new Number(lon)+', '+new Number(lat));
+			//console.log("ENTRA else: "+new Number(lon)+', '+new Number(lat));
 			map.getView().setCenter(ol.proj.fromLonLat([new Number(lon), new Number(lat)]));
 
 		}
@@ -41,7 +41,7 @@ var Mapa = React.createClass({
 	},
 	render: function(){
 		if(this.props.data.longitude !== undefined){
-			console.log('Mapa render() ' + this.props.data.longitude + ', ' + this.props.data.latitude);
+			//console.log('Mapa render() ' + this.props.data.longitude + ', ' + this.props.data.latitude);
 			this.pintarMapa(this.props.data.longitude,this.props.data.latitude);
 		}
 		return null;
